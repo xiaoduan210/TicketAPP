@@ -1,0 +1,63 @@
+{
+    "type": "jsonstore",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "model": "TicketPostItemModel",
+        "storeId": "TicketViewStore",
+        "designer|userClassName": "TicketViewStore"
+    },
+    "designerId": "8303191e-a4ea-45dd-a934-1a84ab5332d6",
+    "cn": [
+        {
+            "type": "Ext.data.proxy.Ajax",
+            "reference": {
+                "name": "proxy",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "url": "/test.js"
+            },
+            "designerId": "7d9a3c4b-4010-4d8b-a4af-45b1fc72951c",
+            "cn": [
+                {
+                    "type": "Ext.data.reader.Json",
+                    "reference": {
+                        "name": "reader",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "rootProperty": "Posts"
+                    },
+                    "designerId": "ee0d7348-c1c3-4ddc-bb03-4d4e4c88e792"
+                }
+            ]
+        },
+        {
+            "type": "basiceventbinding",
+            "reference": {
+                "name": "listeners",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "onJsonstoreLoad",
+                "implHandler": [
+                    "var info = Ext.getCmp('ticketSubject');\r",
+                    "var data = store.getProxy().getReader().rawData;\r",
+                    "if (!Ext.isEmpty(data))\r",
+                    "{\r",
+                    "    info.setTitle(data.subject);\r",
+                    "}"
+                ],
+                "name": "load"
+            },
+            "designerId": "888ff289-49d5-4e8f-a103-81889f2a3557"
+        }
+    ]
+}

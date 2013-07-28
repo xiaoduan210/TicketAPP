@@ -1,0 +1,78 @@
+{
+    "type": "Ext.app.Controller",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyController"
+    },
+    "designerId": "1afcbb4b-9c3d-46a0-893f-d826498f60ab",
+    "cn": [
+        {
+            "type": "staticfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "replyMessage",
+                "designer|params": [
+                    "message",
+                    "fn"
+                ],
+                "implHandler": [
+                    "Ext.Ajax.request({\r",
+                    "    url: '/Ticket/Details/' + ticketId,\r",
+                    "    params: {\r",
+                    "        message: message\r",
+                    "    },\r",
+                    "    success: function(response){ \r",
+                    "        var text = Ext.decode(response.responseText); \r",
+                    "        fn(text);     \r",
+                    "\r",
+                    "    },\r",
+                    "    failure: function(response){\r",
+                    "        Ext.Msg.alert('添加失败');\r",
+                    "    }\r",
+                    "});"
+                ]
+            },
+            "designerId": "7134194a-c273-4865-8aec-af846a526319"
+        },
+        {
+            "type": "staticfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "refreshReply",
+                "implHandler": [
+                    "Ext.Ajax.request({\r",
+                    "    url: '/Comet/GetMessage' ,\r",
+                    "    method:'POST',\r",
+                    "    params: {\r",
+                    "        ticketId: ticketId\r",
+                    "    },\r",
+                    "    success: function(response){ \r",
+                    "        var text = Ext.decode(response.responseText); \r",
+                    "        var store = Ext.getStore('TicketViewStore');\r",
+                    "        store.add(text);\r",
+                    "        var ticketView =Ext.getCmp('TicketView');\r",
+                    "        ticketView.getScrollable().getScroller().scrollToEnd(true);  \r",
+                    "        MyApp.controller.MyController.refreshReply();\r",
+                    "    },\r",
+                    "    failure: function(response){\r",
+                    "        MyApp.controller.MyController.refreshReply();\r",
+                    "    }\r",
+                    "});"
+                ]
+            },
+            "designerId": "2ce3131f-ac6d-4034-9d49-e7429ac97430"
+        }
+    ]
+}

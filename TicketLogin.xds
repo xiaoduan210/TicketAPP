@@ -1,0 +1,103 @@
+{
+    "name": "TicketLogin",
+    "settings": {
+        "spacesToIndent": 4,
+        "lineEnding": "CRLF",
+        "genTimestamps": false,
+        "cacheBust": false,
+        "urlPrefix": "http://localhost:82",
+        "exportPath": "",
+        "buildShouldOverwriteIndex": true,
+        "sdkPath": "C:/Users/Administrator/bin/touch-2.2.1"
+    },
+    "xdsVersion": "2.2.2",
+    "xdsBuild": 991,
+    "schemaVersion": 1,
+    "upgradeVersion": 210000000503,
+    "framework": "touch22",
+    "topInstanceFileMap": {
+        "10874cdb-effc-4ee2-abc8-852a0a6ec502": {
+            "paths": [
+                "metadata/view/MyContainer",
+                "app/view/override/MyContainer.js",
+                "app/view/MyContainer.js"
+            ],
+            "className": "MyContainer"
+        },
+        "5433cacb-6499-4b93-b152-f02dcfdcd8ac": {
+            "paths": [
+                "metadata/resource/Library"
+            ],
+            "className": "Library"
+        },
+        "17ba9a6d-d45c-43fd-9340-989c37e8cbd6": {
+            "paths": [
+                "metadata/resource/packager",
+                "",
+                "packager.json"
+            ],
+            "className": "packager"
+        },
+        "8303191e-a4ea-45dd-a934-1a84ab5332d6": {
+            "paths": [
+                "metadata/store/TicketViewStore",
+                "app/store/override/TicketViewStore.js",
+                "app/store/TicketViewStore.js"
+            ],
+            "className": "TicketViewStore"
+        },
+        "ced95d7c-07a3-4101-a0d3-ca92377f7ff7": {
+            "paths": [
+                "metadata/model/TicketPostItemModel",
+                "app/model/override/TicketPostItemModel.js",
+                "app/model/TicketPostItemModel.js"
+            ],
+            "className": "TicketPostItemModel"
+        },
+        "1d9d3d67-971f-406d-9946-de6d3172cee4": {
+            "paths": [
+                "metadata/resource/css"
+            ],
+            "className": "css"
+        },
+        "36fde7b0-c2c7-45fd-bac1-196b7feec75b": {
+            "paths": [
+                "metadata/view/TicketInfoPanel",
+                "app/view/override/TicketInfoPanel.js",
+                "app/view/TicketInfoPanel.js"
+            ],
+            "className": "TicketInfoPanel"
+        },
+        "1afcbb4b-9c3d-46a0-893f-d826498f60ab": {
+            "paths": [
+                "metadata/controller/MyController",
+                "app/controller/override/MyController.js",
+                "app/controller/MyController.js"
+            ],
+            "className": "MyController"
+        }
+    },
+    "viewOrderMap": {
+        "view": [
+            "10874cdb-effc-4ee2-abc8-852a0a6ec502",
+            "36fde7b0-c2c7-45fd-bac1-196b7feec75b"
+        ],
+        "store": [
+            "8303191e-a4ea-45dd-a934-1a84ab5332d6"
+        ],
+        "controller": [
+            "1afcbb4b-9c3d-46a0-893f-d826498f60ab"
+        ],
+        "model": [
+            "ced95d7c-07a3-4101-a0d3-ca92377f7ff7"
+        ],
+        "resource": [
+            "5433cacb-6499-4b93-b152-f02dcfdcd8ac",
+            "17ba9a6d-d45c-43fd-9340-989c37e8cbd6",
+            "1d9d3d67-971f-406d-9946-de6d3172cee4"
+        ],
+        "app": [
+            "application"
+        ]
+    }
+}

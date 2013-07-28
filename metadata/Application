@@ -1,0 +1,95 @@
+{
+    "type": "Ext.app.Application",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "models": [
+            "TicketPostItemModel"
+        ],
+        "stores": [
+            "TicketViewStore"
+        ],
+        "views": [
+            "MyContainer",
+            "TicketInfoPanel"
+        ],
+        "requires": [
+            "Ext.ux.Fileup"
+        ],
+        "controllers": [
+            "MyController"
+        ],
+        "name": "MyApp"
+    },
+    "designerId": "application",
+    "cn": [
+        {
+            "type": "fixedfunction",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "fn": "launch",
+                "implHandler": [
+                    "Ext.util.Format.timeAgoInWords = function(date) {\r",
+                    "    try {\r",
+                    "        var now = Math.ceil(Number(new Date()) / 1000),\r",
+                    "            dateTime = Math.ceil(Number(new Date(date)) / 1000),\r",
+                    "            diff = now - dateTime,\r",
+                    "            str;\r",
+                    "\r",
+                    "        if (diff < 60) {\r",
+                    "            return String(diff) + ' 秒钟前';\r",
+                    "        } else if (diff < 3600) {\r",
+                    "            str = String(Math.ceil(diff / (60)));\r",
+                    "            return str +  '分钟前';\r",
+                    "        } else if (diff < 86400) {\r",
+                    "            str = String(Math.ceil(diff / (3600)));\r",
+                    "            return str +  '小时前';\r",
+                    "        } else if (diff < 60 * 60 * 24 * 365) {\r",
+                    "            return date;\r",
+                    "        } else {\r",
+                    "            return date;\r",
+                    "        }\r",
+                    "    } catch (e) {\r",
+                    "        return '';\r",
+                    "    }\r",
+                    "};\r",
+                    "\r",
+                    "\r",
+                    "var ticketViewStore = Ext.getStore(\"TicketViewStore\");\r",
+                    "if (\"undefined\" != typeof ticketId)\r",
+                    "{ \r",
+                    "    ticketViewStore.getProxy().setUrl('/Ticket/DetailsJson/' + ticketId);\r",
+                    "    Ext.onReady(function(){\r",
+                    "        MyApp.controller.MyController.refreshReply();\r",
+                    "    });\r",
+                    "}\r",
+                    "ticketViewStore.load();\r",
+                    "\r",
+                    ""
+                ]
+            },
+            "designerId": "d4409927-81df-4316-b5ae-9e7d128c13e6"
+        },
+        {
+            "type": "Ext.Loader",
+            "reference": {
+                "name": "loader",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "paths": [
+                    "{\"Ext.ux\":\"/touch/src/ux\",'Ext': '/touch/src'}"
+                ]
+            },
+            "designerId": "e4dc698a-90d2-4025-81fb-db5696ca32f8"
+        }
+    ]
+}

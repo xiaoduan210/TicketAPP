@@ -1,0 +1,85 @@
+{
+    "type": "Ext.Panel",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "hideAnimation": [
+            "{\r",
+            "            type: 'slideOut',\r",
+            "            duration: 1000,\r",
+            "            direction: 'down'\r",
+            "        }"
+        ],
+        "showAnimation": [
+            "{\r",
+            "            type: 'slideIn',\r",
+            "            duration: 1000,\r",
+            "            direction: 'up'\r",
+            "        }"
+        ],
+        "designer|userClassName": "TicketInfoPanel",
+        "designer|userAlias": "TicketInfo",
+        "hideOnMaskTap": true,
+        "modal": true
+    },
+    "configAlternates": {
+        "hideAnimation": "object",
+        "showAnimation": "object"
+    },
+    "designerId": "36fde7b0-c2c7-45fd-bac1-196b7feec75b",
+    "cn": [
+        {
+            "type": "Ext.XTemplate",
+            "reference": {
+                "name": "tpl",
+                "type": "object"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "implHandler": [
+                    "<div class='ticketInfo'>\r",
+                    "\t<div class=\"pf_item\">\r",
+                    "\t\t<div class=\"label\">公司名称</div>\r",
+                    "        <div class=\"con\">{companyName}</div>\r",
+                    "\t</div>\r",
+                    "\t<div class=\"pf_item\">\r",
+                    "\t\t<div class=\"label\">工单标题</div>\r",
+                    "        <div class=\"con\">{subject}</div>\r",
+                    "\t</div>\r",
+                    "\t<div class=\"pf_item\">\r",
+                    "\t\t<div class=\"label\">发起人</div>\r",
+                    "        <div class=\"con\">{fromUserName}</div>\r",
+                    "\t</div>\r",
+                    "\t<div class=\"pf_item\">\r",
+                    "\t\t<div class=\"label\">受理人</div>\r",
+                    "        <div class=\"con\">{assigneeUserName}</div>\r",
+                    "\t</div>\r",
+                    "    <tpl if=\"!Ext.isEmpty(joinUserName)\">\r",
+                    "        <div class=\"pf_item\">\r",
+                    "            <div class=\"label\">抄送</div>\r",
+                    "            <div class=\"con\">{joinUserName}</div>\r",
+                    "        </div>\r",
+                    "\t</tpl>\r",
+                    "\t<div class=\"pf_item\">\r",
+                    "\t\t<div class=\"label\">状态</div>\r",
+                    "        <div class=\"con\">{status}</div>\r",
+                    "\t</div>\r",
+                    "\t<div class=\"pf_item\">\r",
+                    "\t\t<div class=\"label\">创建时间</div>\r",
+                    "        <div class=\"con\">{creatTime:timeAgoInWords}</div>\r",
+                    "\t</div>\r",
+                    "\t<div class=\"pf_item\">\r",
+                    "\t\t<div class=\"label\">到期时间</div>\r",
+                    "        <div class=\"con\">{hopeDoneTime:timeAgoInWords}</div>\r",
+                    "\t</div>\r",
+                    "</div>"
+                ],
+                "designer|displayName": "tpl"
+            },
+            "designerId": "360a1d3b-d5f0-4fe6-b48b-85535d7f13eb"
+        }
+    ]
+}

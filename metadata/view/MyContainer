@@ -1,0 +1,357 @@
+{
+    "type": "Ext.Container",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "MyContainer",
+        "requires": [
+            "Ext.plugin.PullRefresh",
+            "Ext.plugin.ListPaging"
+        ],
+        "designer|initialView": true,
+        "layout": "fit"
+    },
+    "designerId": "10874cdb-effc-4ee2-abc8-852a0a6ec502",
+    "cn": [
+        {
+            "type": "Ext.TitleBar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "top",
+                "id": "ticketSubject",
+                "title": "正在加载..."
+            },
+            "designerId": "edb466f0-f521-4a2d-a8b7-2c552e427073",
+            "cn": [
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "id": "TicketInfoButton",
+                        "itemId": "mybutton",
+                        "iconCls": "info",
+                        "text": null
+                    },
+                    "designerId": "98febe20-0b5c-49be-8783-34872418ed29",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTicketInfoButtonTap",
+                                "implHandler": [
+                                    "var info = button.TicketInfo;\r",
+                                    "if (!info)\r",
+                                    "info = button.TicketInfo = Ext.widget('TicketInfo');\r",
+                                    "var data = Ext.getStore('TicketViewStore').getProxy().getReader().rawData;\r",
+                                    "info.setData(data);\r",
+                                    "\r",
+                                    "info.showBy(button);"
+                                ],
+                                "name": "tap"
+                            },
+                            "designerId": "e4b6266a-1830-4702-90c4-432d0d058e98"
+                        }
+                    ]
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "align": "right",
+                        "id": "TicketReplyButton",
+                        "itemId": "mybutton1",
+                        "iconCls": "delete",
+                        "text": null
+                    },
+                    "designerId": "240e4306-80b8-42bc-99b0-a851acb5887e",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onTicketReplyButtonTap",
+                                "implHandler": [
+                                    "Ext.get('logoutForm').dom.submit();"
+                                ],
+                                "name": "tap"
+                            },
+                            "designerId": "3a4ddc3a-e89e-491d-94bd-44cd79908b2b"
+                        }
+                    ]
+                }
+            ]
+        },
+        {
+            "type": "Ext.dataview.List",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "id": "TicketView",
+                "itemId": "mylist",
+                "scrollable": [
+                    "{scroller: {\r",
+                    "           disabled:false\r",
+                    "}}"
+                ],
+                "disableSelection": true,
+                "store": "TicketViewStore",
+                "striped": true
+            },
+            "designerId": "6fe1c958-a345-4ac3-a907-9a1afaca1d6d",
+            "cn": [
+                {
+                    "type": "Ext.XTemplate",
+                    "reference": {
+                        "name": "itemTpl",
+                        "type": "object"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "implHandler": [
+                            "<img src=\"{headImageUrl}\" />\r",
+                            "<div class=\"tweet\">\r",
+                            "    <span class=\"posted\">{creatTime:timeAgoInWords}</span>\r",
+                            "    <h2>{author}</h2>\r",
+                            "    <div>{message}</div>\r",
+                            "</div>\r",
+                            "<div class='clear'></div>"
+                        ],
+                        "designer|displayName": "itemTpl"
+                    },
+                    "designerId": "a5850e9c-391a-4f7b-a93a-f1d2fa0cb387"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onTicketViewItemTap",
+                        "implHandler": [
+                            "var image = target.element.query('div.tweet img');\r",
+                            "console.log(image);"
+                        ],
+                        "name": "itemtap"
+                    },
+                    "designerId": "e6a35428-98d1-4f6c-83b0-f036e0e3e8d3"
+                },
+                {
+                    "type": "Ext.plugin.PullRefresh",
+                    "reference": {
+                        "name": "plugins",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "designerId": "17e8463c-6119-4243-812d-8b038b207b6f"
+                }
+            ]
+        },
+        {
+            "type": "Ext.Toolbar",
+            "reference": {
+                "name": "items",
+                "type": "array"
+            },
+            "codeClass": null,
+            "userConfig": {
+                "docked": "bottom",
+                "id": "bottomBar",
+                "itemId": "mytoolbar"
+            },
+            "designerId": "1f134411-3876-49d2-8eff-5402f3b38fdd",
+            "cn": [
+                {
+                    "type": "Ext.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "designerId": "001b02b0-53cf-4ffe-9cc1-242db12f1593"
+                },
+                {
+                    "type": "Ext.field.TextArea",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "height": 42,
+                        "id": "messageTextArea",
+                        "width": 105,
+                        "label": null
+                    },
+                    "designerId": "0e0672b6-7108-43df-bee3-5a35579d6668"
+                },
+                {
+                    "type": "Ext.Spacer",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "designerId": "0660c67e-b25c-4c96-b264-964caabb91fd"
+                },
+                {
+                    "type": "Ext.Button",
+                    "reference": {
+                        "name": "items",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "itemId": "mybutton3",
+                        "text": "发送"
+                    },
+                    "designerId": "0c6b0ac1-1b1f-4eff-9f11-d741f2d6c487",
+                    "cn": [
+                        {
+                            "type": "basiceventbinding",
+                            "reference": {
+                                "name": "listeners",
+                                "type": "array"
+                            },
+                            "codeClass": null,
+                            "userConfig": {
+                                "fn": "onMybutton3Tap",
+                                "implHandler": [
+                                    "var store = Ext.getStore('TicketViewStore');\r",
+                                    "var textArea = Ext.getCmp('messageTextArea');\r",
+                                    "var value = textArea.getValue();\r",
+                                    "\r",
+                                    "if (Ext.isEmpty(value)) \r",
+                                    "{\r",
+                                    "    Ext.Msg.alert('回复内容不可为空!');\r",
+                                    "    return;\r",
+                                    "}\r",
+                                    "\r",
+                                    "var reply = MyApp.controller.MyController.replyMessage(value,function(replyJson){\r",
+                                    "\r",
+                                    "    store.add(replyJson);\r",
+                                    "    textArea.setValue(); \r",
+                                    "\r",
+                                    "     var ticketView =Ext.getCmp('TicketView');\r",
+                                    "        ticketView.getScrollable().getScroller().scrollToEnd(false);\r",
+                                    "\r",
+                                    "});"
+                                ],
+                                "name": "tap"
+                            },
+                            "designerId": "51beb70a-e92d-47b3-bbeb-ffd2ffff5864"
+                        }
+                    ]
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onBottomToolbarResize",
+                        "implHandler": [
+                            "var width = element.dom.offsetWidth;\r",
+                            "Ext.getCmp('messageTextArea').setWidth(width - 160);\r",
+                            ""
+                        ],
+                        "name": "resize"
+                    },
+                    "designerId": "08db8963-674c-4b42-a657-2d1a1a11f3cb"
+                },
+                {
+                    "type": "basiceventbinding",
+                    "reference": {
+                        "name": "listeners",
+                        "type": "array"
+                    },
+                    "codeClass": null,
+                    "userConfig": {
+                        "fn": "onBottomBarInitialize",
+                        "implHandler": [
+                            "var fileItem = new Ext.ux.Fileup({\r",
+                            "    config: {\r",
+                            "        itemId: 'fileBtn',\r",
+                            "        autoUpload: false,\r",
+                            "        url: 'src/php/getfile.php',\r",
+                            "        name: 'userfil2e'\r",
+                            "    },\r",
+                            "    states: {\r",
+                            "        browse: {\r",
+                            "            text: '上传'\r",
+                            "        },\r",
+                            "        ready: {\r",
+                            "            text: 'Load'\r",
+                            "        },\r",
+                            "\r",
+                            "        uploading: {\r",
+                            "            text: '上传中',\r",
+                            "            loading: true\r",
+                            "        }\r",
+                            "    },\r",
+                            "    listeners: {\r",
+                            "        'success': function() {\r",
+                            "            console.log('Success');\r",
+                            "\r",
+                            "            Ext.device.Notification.show({\r",
+                            "                title: 'All right',\r",
+                            "                message: 'File uploaded successfully',\r",
+                            "                buttons: Ext.MessageBox.OK,\r",
+                            "                callback: Ext.emptyFn\r",
+                            "            });\r",
+                            "        },\r",
+                            "        'failure': function(message) {\r",
+                            "            console.log('Failure');\r",
+                            "\r",
+                            "            Ext.device.Notification.show({\r",
+                            "                title: 'Uploading error',\r",
+                            "                message: message,\r",
+                            "                buttons: Ext.MessageBox.OK,\r",
+                            "                callback: Ext.emptyFn\r",
+                            "            });\r",
+                            "        }\r",
+                            "    }\r",
+                            "\r",
+                            "});\r",
+                            "//  var bottomBar = Ext.getCmp('bottomBar');\r",
+                            "\r",
+                            "this.insert(0, fileItem);"
+                        ],
+                        "name": "initialize"
+                    },
+                    "designerId": "2deb1a5d-72cf-47bf-881d-e3bc3679d246"
+                }
+            ]
+        }
+    ]
+}

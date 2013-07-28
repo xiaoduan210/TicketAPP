@@ -1,0 +1,47 @@
+h2 {
+    font-weight: bold;
+    padding-bottom: 3px
+}
+
+img {
+    border-radius: 5px;
+    float: left
+}
+
+.tweet {
+    font-size: 70%;
+    margin-left: 60px;
+    color: #333;
+    min-height: 50px
+}
+.tweet img {max-width:150px;max-height:150px;}
+.x-list-item {
+    border-top: 1px solid white
+}
+
+.posted {
+    float: right
+}
+.clear {clear:both;}
+.label {
+float: left;
+width: 53px;
+text-align: right;
+white-space: nowrap;
+color: #808080;
+}
+.con {
+margin-left: 67px;
+padding: 0 10px;
+word-wrap: break-word;
+}
+.pf_item {
+font-size: 12px;
+line-height: 20px;
+margin-bottom: 5px;
+position: relative;
+}
+.ticketInfo {
+	padding:5px;
+}
+#file{ position:absolute; z-index:100; margin-left:-180px; font-size:60px;opacity:0;filter:alpha(opacity=0); margin-top:-5px;}

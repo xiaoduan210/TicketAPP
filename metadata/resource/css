@@ -1,0 +1,13 @@
+{
+    "type": "cssresource",
+    "reference": {
+        "name": "items",
+        "type": "array"
+    },
+    "codeClass": null,
+    "userConfig": {
+        "designer|userClassName": "css",
+        "url": "/tweetlist.css"
+    },
+    "designerId": "1d9d3d67-971f-406d-9946-de6d3172cee4"
+}
